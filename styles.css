@@ -23,8 +23,27 @@ body {
   color: #ff2941;
 }
 
-#emptyDiv {
+#instructions {
   padding: 30px;
+  margin: 40px 80px;
+  font-family: Lekton;
+}
+
+#instructions h4 {
+  font-weight: bold;
+  font-family: Lekton;
+  font-size: 20px;
+}
+
+#instructions ol {
+  font-family: Lekton;
+  font-size: 15px;
+  list-style: inside;
+}
+
+#imageDiv {
+  font-family: Lekton;
+  font-size: 15px;
 }
 
 #imageDiv img {
@@ -33,9 +52,21 @@ body {
   padding-bottom: 30px;
 }
 
+#weaponsDiv {
+  font-family: Lekton;
+  font-size: 15px;
+}
+
 #weaponsDiv img {
   padding: 10px;
   margin: 40px 80px;
+  font-family: Lekton;
+  font-size: 15px;
+}
+
+#enemyDiv {
+  font-family: Lekton;
+  font-size: 15px;
 }
 
 #backpackDiv {
@@ -44,6 +75,14 @@ body {
 }
 
 #heroStatsDiv {
+  padding: 10px;
+  margin: 40px 80px;
+  font-family: Lekton;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#backpackContentDiv {
   padding: 10px;
   margin: 40px 80px;
   font-family: Lekton;

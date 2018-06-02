@@ -1,11 +1,14 @@
 "use strict";
 // Variables
 let hero = {
-  name: "Droid",
+  name: "",
   heroic: true, // this is a boolean value
   inventory: [],
-  health: 100, // this variable is a number
-  weapon: { type: "testWeapon", damage: 3 }  // damage is an integer
+  health: 0, // this variable is a number
+  weapon: {
+    type: "",
+    damage: 0
+  } // damage is an integer
 };
 
 // console.log("default hero - ", hero);
@@ -20,7 +23,10 @@ function rest(creature) {
 // console.log("hero status after rest func- ", hero);
 
 function pickUpItem(creature, itemName, itemDamage) {
-  let item = {type: itemName, damage: itemDamage};
+  let item = {
+    type: itemName,
+    damage: itemDamage
+  };
   creature["inventory"].push(item);
   return creature;
 };
@@ -36,10 +42,12 @@ function dealDamage(attacker, defender) {
 };
 
 function equipWeapon(creature, index) {
-    creature.weapon = {};
-    creature.weapon = creature.inventory[index];
-    creature["inventory"].pop(index);
-    return creature;
+  creature.weapon = {};
+  creature.weapon = creature.inventory[index];
+  creature["inventory"].pop(index);
+  return creature;
+  console.log(creature.weapon);
+  console.log(creature.inventory);
 };
 
 // equipWeapon(hero, 0);
@@ -56,10 +64,11 @@ function doBattle(heroicCreature, creature) {
     };
   };
   if (heroicCreature.health > 0) {
+    window.alert("You are the winner!");
     return heroicCreature;
   } else {
     window.alert("You are dead, bro!");
-  }
+  };
 };
 
 // UI
@@ -74,28 +83,43 @@ let backpackContentDiv = document.getElementById("backpackContentDiv");
 
 image.addEventListener("click", function(event) {
   rest(hero);
+  let heroName = prompt("What's the name of your hero? (give me a string, bro)");
+  // heroNameString = String(heroName);
+  hero.name = heroName;
   // console.log("Testing like a pro!")
+  updateStats();
 });
 
 bow.addEventListener("click", function(event) {
   pickUpItem(hero, "Mighty Bow", 7);
   // console.log("Testing the BOW like a pro!")
+  updateStats();
 });
 
 nunchaku.addEventListener("click", function(event) {
   pickUpItem(hero, "Ninja Nunchaku", 4);
   // console.log("Testing the NUNCHAKU like a pro!")
+  updateStats();
 });
 
 sword.addEventListener("click", function(event) {
   pickUpItem(hero, "Barbarian Sword", 9);
   // console.log("Testing the SWORD like a pro!")
+  updateStats();
 });
 
 enemy.addEventListener("click", function(event) {
-  let health = { health: 8 };
-  let weapon = { type: "hammer", damage: 3  }
-  let enemy = { health, weapon };
+  let health = {
+    health: 8
+  };
+  let weapon = {
+    type: "hammer",
+    damage: 3
+  }
+  let enemy = {
+    health,
+    weapon
+  };
   doBattle(hero, enemy);
   // console.log("Testing the doBattle Function like a pro!");
   // console.log("enemy has these stats: ", enemy);
@@ -107,9 +131,14 @@ backpack.addEventListener("click", function(event) {
   let userWeaponInt = parseInt(userWeapon);
   equipWeapon(hero, userWeaponInt);
   // console.log("calling the doBattle function here: ", doBattle(hero, enemy));
+  updateStats();
 });
 
 function displayStats() {
+  while (heroStatsDiv.firstChild) {
+    heroStatsDiv.removeChild(heroStatsDiv.firstChild);
+  };
+
   let heroName = hero.name;
   let heroHealth = hero.health;
   let heroWeaponType = hero.weapon["type"];
@@ -131,25 +160,30 @@ function displayStats() {
   heroWeaponDamagePara.innerText = "Hero Weapon Damage: " + heroWeaponDamage;
 };
 
-function backpackContent() {
-  let backpackContent = hero.inventory;
+function displayInventory() {
+  while (backpackContentDiv.firstChild) {
+    backpackContentDiv.removeChild(backpackContentDiv.firstChild);
+  };
+  let backpackMessage = "";
+  let backpackContent = [];
+  for (var i = 0; i < hero.inventory.length; i++) {
+    backpackContent.push(hero.inventory[i].type);
+  };
+  // console.log(backpackContent);
+  backpackMessage = "Here's the content of your backpack:";
   let backpackContentPara = document.createElement("p");
+  let backpackMessagePara = document.createElement("p");
+  backpackContentDiv.appendChild(backpackMessagePara);
   backpackContentDiv.appendChild(backpackContentPara);
+  backpackMessagePara.innerText = backpackMessage;
   backpackContentPara.innerText = backpackContent;
 };
 
+function updateStats() {
+  displayStats();
+  displayInventory();
+};
+
 displayStats();
-backpackContent();
-
-
-
-
-
-
-
-
-
-
-
-
+displayInventory();
 //
