@@ -11,7 +11,7 @@ html {
 body {
   width: 1300px;
   margin: 0 auto;
-  background-color: #F9D99C;
+  background-color: #FAE3B7;
   padding: 70px 0;
   border: 1px solid black;
   text-align: center;
@@ -20,8 +20,33 @@ body {
 #welcomeH1 {
   font-family: Lekton;
   font-size: 50px;
+  color: #ff2941;
 }
 
-#imageDiv {
+#emptyDiv {
+  padding: 30px;
+}
 
+#imageDiv img {
+  cursor: -webkit-grab;
+  cursor: grab;
+  padding-bottom: 30px;
+}
+
+#weaponsDiv img {
+  padding: 10px;
+  margin: 40px 80px;
+}
+
+#backpackDiv {
+  padding: 10px;
+  margin: 40px 80px;
+}
+
+#heroStatsDiv {
+  padding: 10px;
+  margin: 40px 80px;
+  font-family: Lekton;
+  font-size: 15px;
+  font-weight: bold;
 }

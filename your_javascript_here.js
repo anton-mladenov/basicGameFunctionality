@@ -5,7 +5,7 @@ let hero = {
   heroic: true, // this is a boolean value
   inventory: [],
   health: 100, // this variable is a number
-  weapon: {type: "testWeapon", damage: 1}  // damage is an integer
+  weapon: { type: "testWeapon", damage: 3 }  // damage is an integer
 };
 
 // console.log("default hero - ", hero);
@@ -63,19 +63,83 @@ function doBattle(heroicCreature, creature) {
 };
 
 // UI
+let image = document.getElementById("imageDiv");
+let bow = document.getElementById("imageBow");
+let nunchaku = document.getElementById("imageNunchaku");
+let sword = document.getElementById("imageSword");
+let enemy = document.getElementById("imageEnemy");
+let backpack = document.getElementById("imageBackpack");
+let heroStatsDiv = document.getElementById("heroStatsDiv");
+let backpackContentDiv = document.getElementById("backpackContentDiv");
 
+image.addEventListener("click", function(event) {
+  rest(hero);
+  // console.log("Testing like a pro!")
+});
 
+bow.addEventListener("click", function(event) {
+  pickUpItem(hero, "Mighty Bow", 7);
+  // console.log("Testing the BOW like a pro!")
+});
 
+nunchaku.addEventListener("click", function(event) {
+  pickUpItem(hero, "Ninja Nunchaku", 4);
+  // console.log("Testing the NUNCHAKU like a pro!")
+});
 
+sword.addEventListener("click", function(event) {
+  pickUpItem(hero, "Barbarian Sword", 9);
+  // console.log("Testing the SWORD like a pro!")
+});
 
+enemy.addEventListener("click", function(event) {
+  let health = { health: 8 };
+  let weapon = { type: "hammer", damage: 3  }
+  let enemy = { health, weapon };
+  doBattle(hero, enemy);
+  // console.log("Testing the doBattle Function like a pro!");
+  // console.log("enemy has these stats: ", enemy);
+  // console.log("calling the doBattle function here: ", doBattle(hero, enemy));
+});
 
+backpack.addEventListener("click", function(event) {
+  let userWeapon = prompt("What weapon would you choose, warrior? (give me a number)");
+  let userWeaponInt = parseInt(userWeapon);
+  equipWeapon(hero, userWeaponInt);
+  // console.log("calling the doBattle function here: ", doBattle(hero, enemy));
+});
 
+function displayStats() {
+  let heroName = hero.name;
+  let heroHealth = hero.health;
+  let heroWeaponType = hero.weapon["type"];
+  let heroWeaponDamage = hero.weapon["damage"];
 
+  let heroNamePara = document.createElement("p");
+  let heroHealthPara = document.createElement("p");
+  let heroWeaponTypePara = document.createElement("p");
+  let heroWeaponDamagePara = document.createElement("p");
 
+  heroStatsDiv.appendChild(heroNamePara);
+  heroStatsDiv.appendChild(heroHealthPara);
+  heroStatsDiv.appendChild(heroWeaponTypePara);
+  heroStatsDiv.appendChild(heroWeaponDamagePara);
 
+  heroNamePara.innerText = "Hero name: " + heroName;
+  heroHealthPara.innerText = "Hero health: " + heroHealth;
+  heroWeaponTypePara.innerText = "Hero Weapon: " + heroWeaponType;
+  heroWeaponDamagePara.innerText = "Hero Weapon Damage: " + heroWeaponDamage;
+};
 
+function backpackContent() {
+  let backpackContent = hero.inventory;
+  let backpackContentPara = document.createElement("p");
+  backpackContentDiv.appendChild(backpackContentPara);
+  backpackContentPara.innerText = backpackContent;
+};
 
-
+displayStats();
+backpackContent();
 
 
 
