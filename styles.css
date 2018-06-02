@@ -23,6 +23,10 @@ body {
   color: #ff2941;
 }
 
+#hotel {
+  margin-top: 10px;
+}
+
 #instructions {
   padding: 30px;
   margin: 40px 80px;
@@ -52,6 +56,10 @@ body {
   padding-bottom: 30px;
 }
 
+#imageBow {
+  margin-top: 10px;
+}
+
 #weaponsDiv {
   font-family: Lekton;
   font-size: 15px;
@@ -59,7 +67,7 @@ body {
 
 #weaponsDiv img {
   padding: 10px;
-  margin: 40px 80px;
+  margin: 20px 80px;
   font-family: Lekton;
   font-size: 15px;
 }
@@ -69,14 +77,28 @@ body {
   font-size: 15px;
 }
 
+#enemyDiv img {
+  margin: 30px 20px 60px 60px;
+}
+
 #backpackDiv {
   padding: 10px;
-  margin: 40px 80px;
+  margin: 20px 80px;
+  font-family: Lekton;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#backpackDiv img {
+margin-top: 10px;
+}
+
+#backpackDiv img {
+margin-top: 30px;
 }
 
 #heroStatsDiv {
   padding: 10px;
-  margin: 40px 80px;
   font-family: Lekton;
   font-size: 15px;
   font-weight: bold;
@@ -84,7 +106,7 @@ body {
 
 #backpackContentDiv {
   padding: 10px;
-  margin: 40px 80px;
+  margin: 20px 80px;
   font-family: Lekton;
   font-size: 15px;
   font-weight: bold;

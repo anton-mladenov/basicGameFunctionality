@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="a small game prototype homework for Codaisseur">
-        <title>Anton's Irish Inn Hero Game</title>
-        <link href="./styles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Graduate|Lekton" rel="stylesheet">
-    </head>
 
-    <body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="a small game prototype homework for Codaisseur">
+  <title>Anton's Irish Inn Hero Game</title>
+  <link href="./styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Graduate|Lekton" rel="stylesheet">
+</head>
 
-        <h1 id="welcomeH1">Welcome to Anton's Irish Inn Hero Game</h1>
+<body>
 
-        <div id="instructions">
-          <h1 id="instrH1">Let's play a game.</h1>
-        </div>
+  <h1 id="welcomeH1">Welcome to Anton's Irish Inn Hero Game</h1>
 
-        <div id="imageDiv">
-          <h3>Click on the hotel image and choose a name for your hero.</h3>
-          <img src="./images/hotel.png" alt="image by Mary Elizabeth Caverly" height="120" width="120" />
-        </div>
+  <div id="instructions">
+    <h1 id="instrH1">Let's play a game.</h1>
+  </div>
 
-        <div id="weaponsDiv">
-          <h3>Now, you should choose a weapon.</h3>
-          <img id="imageBow" src="./images/bow.png" alt="mighty bow" height="70" width="70" />
-          <img id="imageNunchaku" src="./images/nunchaku.png" alt="ninja nunchaku" height="70" width="70" />
-          <img id="imageSword" src="./images/sword.png" alt="barbarian sword" height="70" width="70" />
-        </div>
+  <div id="imageDiv">
+    <h3>Click on the hotel image and choose a name for your hero.</h3>
+    <img id="hotel" src="./images/hotel.png" alt="image by Mary Elizabeth Caverly" height="150" width="120" />
+  </div>
 
-        <div id="enemyDiv">
-            <h3>Finally, click on the enemy icon.</h3>
-          <img id="imageEnemy" src="./images/saw.png" alt="ugly enemy" height="70" width="70" />
-        </div>
+  <div id="weaponsDiv">
+    <h3>Then, you should choose a weapon.</h3>
+    <img id="imageBow" src="./images/bow.png" alt="mighty bow" height="70" width="70" />
+    <img id="imageNunchaku" src="./images/nunchaku.png" alt="ninja nunchaku" height="70" width="70" />
+    <img id="imageSword" src="./images/sword.png" alt="barbarian sword" height="70" width="70" />
+  </div>
 
-        <div id="backpackDiv">
-          <img id="imageBackpack" src="./images/backpack.png" alt="magic backpack" height="70" width="70" />
-        </div>
+  <div id="backpackDiv">
+    <h3>Now, equip your hero with a weapon from your inventory.</h3>
+    <h3>If you have clicked on all weapons, enter an integer between 0 and 2 in the prompt box.</h3>
+    <img id="imageBackpack" src="./images/backpack.png" alt="magic backpack" height="70" width="70" />
+  </div>
 
-        <div id="heroStatsDiv">
+  <div id="backpackContentDiv">
 
-        </div>
+  </div>
 
-        <div id="backpackContentDiv">
+  <div id="enemyDiv">
+    <h3>Finally, click on the enemy icon to engage in a fight.</h3>
+    <h3>The winner will be determined, based on your chosen weapon's damage and your enemy's strength.</h3>
+    <img id="bandit" src="./images/bandit.png" alt="ugly enemy" height="70" width="70" />
+    <img id="saw" src="./images/saw.png" alt="ugly enemy" height="70" width="70" />
+    <img id="gangster" src="./images/gangster.png" alt="ugly enemy" height="70" width="70" />
+  </div>
 
-        </div>
+  <div id="heroStatsDiv">
 
-        <script src="your_javascript_here.js"></script>
-        <script src="tests.js"></script>
-    </body>
+  </div>
+
+  <script src="your_javascript_here.js"></script>
+  <!-- <script src="tests.js"></script> -->
+</body>
 
 </html>

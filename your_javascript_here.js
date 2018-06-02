@@ -1,13 +1,13 @@
 "use strict";
 // Variables
 let hero = {
-  name: "",
+  name: "'defaultName'",
   heroic: true, // this is a boolean value
   inventory: [],
-  health: 0, // this variable is a number
+  health: 99, // this variable is a number
   weapon: {
-    type: "",
-    damage: 0
+    type: "'defaultWeapon'",
+    damage: 99
   } // damage is an integer
 };
 
@@ -46,8 +46,8 @@ function equipWeapon(creature, index) {
   creature.weapon = creature.inventory[index];
   creature["inventory"].pop(index);
   return creature;
-  console.log(creature.weapon);
-  console.log(creature.inventory);
+  // console.log(creature.weapon);
+  // console.log(creature.inventory);
 };
 
 // equipWeapon(hero, 0);
@@ -73,10 +73,17 @@ function doBattle(heroicCreature, creature) {
 
 // UI
 let image = document.getElementById("imageDiv");
+
+let weaponsDiv = document.getElementById("weaponsDiv");
 let bow = document.getElementById("imageBow");
 let nunchaku = document.getElementById("imageNunchaku");
 let sword = document.getElementById("imageSword");
-let enemy = document.getElementById("imageEnemy");
+
+let enemyDiv = document.getElementById("enemyDiv");
+let bandit = document.getElementById("bandit");
+let saw = document.getElementById("saw");
+let gangster = document.getElementById("gangster");
+
 let backpack = document.getElementById("imageBackpack");
 let heroStatsDiv = document.getElementById("heroStatsDiv");
 let backpackContentDiv = document.getElementById("backpackContentDiv");
@@ -91,39 +98,72 @@ image.addEventListener("click", function(event) {
 });
 
 bow.addEventListener("click", function(event) {
-  pickUpItem(hero, "Mighty Bow", 7);
+  pickUpItem(hero, "Mighty Bow", 5);
   // console.log("Testing the BOW like a pro!")
   updateStats();
+  weaponsDiv.removeChild(bow);
 });
 
 nunchaku.addEventListener("click", function(event) {
-  pickUpItem(hero, "Ninja Nunchaku", 4);
+  pickUpItem(hero, "Ninja Nunchaku", 3);
   // console.log("Testing the NUNCHAKU like a pro!")
   updateStats();
+  weaponsDiv.removeChild(nunchaku);
 });
 
 sword.addEventListener("click", function(event) {
-  pickUpItem(hero, "Barbarian Sword", 9);
+  pickUpItem(hero, "Barbarian Sword", 7);
   // console.log("Testing the SWORD like a pro!")
   updateStats();
+  weaponsDiv.removeChild(sword);
 });
 
-enemy.addEventListener("click", function(event) {
-  let health = {
-    health: 8
-  };
+bandit.addEventListener("click", function(event) {
+  let health = 10;
   let weapon = {
-    type: "hammer",
-    damage: 3
-  }
+    type: "Revolver",
+    damage: 7
+  };
   let enemy = {
     health,
     weapon
   };
   doBattle(hero, enemy);
-  // console.log("Testing the doBattle Function like a pro!");
   // console.log("enemy has these stats: ", enemy);
-  // console.log("calling the doBattle function here: ", doBattle(hero, enemy));
+  updateStats();
+  enemyDiv.removeChild(bandit);
+});
+
+saw.addEventListener("click", function(event) {
+  let health = 10;
+  let weapon = {
+    type: "saw",
+    damage: 4
+  };
+  let enemy = {
+    health,
+    weapon
+  };
+  doBattle(hero, enemy);
+  // console.log("enemy has these stats: ", enemy);
+  updateStats();
+  enemyDiv.removeChild(saw);
+});
+
+gangster.addEventListener("click", function(event) {
+  let health = 10;
+  let weapon = {
+    type: "Metal Bar",
+    damage: 5
+  };
+  let enemy = {
+    health,
+    weapon
+  };
+  doBattle(hero, enemy);
+  // console.log("enemy has these stats: ", enemy);
+  updateStats();
+  enemyDiv.removeChild(gangster);
 });
 
 backpack.addEventListener("click", function(event) {
