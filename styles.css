@@ -1,0 +1,27 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #FD991F;
+  margin: 0 auto;
+}
+
+body {
+  width: 1300px;
+  margin: 0 auto;
+  background-color: #F9D99C;
+  padding: 70px 0;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#welcomeH1 {
+  font-family: Lekton;
+  font-size: 50px;
+}
+
+#imageDiv {
+
+}

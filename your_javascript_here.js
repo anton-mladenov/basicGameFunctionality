@@ -1,16 +1,14 @@
+"use strict";
 // Variables
 let hero = {
   name: "Droid",
   heroic: true, // this is a boolean value
-  inventory: [
-    {
-      // type: "magic wand",
-      damage: 40
-    }
-  ],
+  inventory: [],
   health: 100, // this variable is a number
-  weapon: {} //{type: "Summon Bear Spell", damage: 33}  damage is a number data type
+  weapon: {type: "testWeapon", damage: 1}  // damage is an integer
 };
+
+// console.log("default hero - ", hero);
 
 // Game logic
 function rest(creature) {
@@ -18,40 +16,76 @@ function rest(creature) {
   return creature;
 };
 
-function pickUpItem(creature, item) {
+// rest(hero);
+// console.log("hero status after rest func- ", hero);
+
+function pickUpItem(creature, itemName, itemDamage) {
+  let item = {type: itemName, damage: itemDamage};
   creature["inventory"].push(item);
   return creature;
 };
+
+// pickUpItem(hero, "AK-47", 400);
+// console.log("hero status after first weapon - ", hero);
+// pickUpItem(hero, "Master Blaster", 250);
+// console.log("hero status after second weapon - ", hero);
 
 function dealDamage(attacker, defender) {
   defender.health -= attacker["weapon"]["damage"];
   return defender;
 };
 
-/* equipWeapon is a function that takes a changes the weapon of the creature to one that is in their inventory and removes that weapon from their inventory.
-
-- equipWeapon should have two parameters. creature and index. You can assume that creature has the same structure as your hero object and that index is a number.
-- modify the weapon of the creature by assigning it the value of the indexth element of the inventory
-- modify the creature's inventory by removing the indexth element from it
-- return the creature object from the function */
-
 function equipWeapon(creature, index) {
-  creature["weapon"] = creature["inventory"][index];
-  creature["inventory"].pop(index);
-  return creature;
+    creature.weapon = {};
+    creature.weapon = creature.inventory[index];
+    creature["inventory"].pop(index);
+    return creature;
 };
 
-equipWeapon(hero, 0); // keep testing the equipWeapon function...!!!
-
+// equipWeapon(hero, 0);
+// console.log("hero status after equipWeapon func - ", hero);
+//
 function doBattle(heroicCreature, creature) {
   if (!heroicCreature.heroic) {
     return null;
   };
   while (heroicCreature.health > 0 && creature.health > 0) {
     dealDamage(heroicCreature, creature);
+    if (creature.health > 0) {
+      dealDamage(creature, heroicCreature);
+    };
   };
+  if (heroicCreature.health > 0) {
+    return heroicCreature;
+  } else {
+    window.alert("You are dead, bro!");
+  }
 };
 
 // UI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //
